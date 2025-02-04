@@ -20,8 +20,8 @@ export default function Home() {
       let sumRtt = 0;
       let sumTtfb = 0;
       data.forEach((origin) => {
-        sumRtt += origin.rtt;
-        sumTtfb += origin.ttfb.value;
+        sumRtt += +origin.rtt || 0;
+        sumTtfb += +origin.ttfb.value || 0;
       });
 
       setAggrData([
@@ -78,7 +78,7 @@ export default function Home() {
       <SearchBar setOrigin={handleSetOrigin} />
       <div className="flex gap-4">
         {aggrData.map((data, index) => (
-          <CruxInfo key={index} data={data} />
+          <CruxInfo loading={loading} key={index} data={data} />
         ))}
       </div>
 

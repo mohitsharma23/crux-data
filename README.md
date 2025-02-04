@@ -1,8 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Overview
 
-## Getting Started
+This application allows users to add origins using a search box and view their performance data in a tabular format. Users can filter, sort, and customize the table by hiding or showing columns as needed.
 
-First, run the development server:
+## Features
+
+- **Search Box for Adding Origins:** Users can search and add website origins to analyze their CrUX performance data.
+- **Tabular Data Display:** The application fetches CrUX data and displays it in a structured table format.
+- **Filtering & Sorting:** Users can filter and sort data based on various performance metrics.
+- **Column Visibility Customization:** Users can toggle the visibility of table columns to focus on relevant metrics.
+- **Data summary info:** Users has the ability to view Average and total information for certain metrics
+
+## Local run
+
+- Dowload the zip or clone the repo using the link
+- Install dependencies
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
+```
+
+- Create a .env file in your root directory and add the below items
+
+```bash
+NEXT_PUBLIC_CRUX_API_URL=https://chromeuxreport.googleapis.com/v1/records:queryRecord
+NEXT_PUBLIC_API_KEY=<your_api_key_from_google_cloud_console>
+```
+
+- Run the development server:
 
 ```bash
 npm run dev
@@ -16,21 +46,9 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Next steps
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Enhance UI/UX:** Improve the interface for better user experience by using visualization charts and color coding.
+- **Pagination Support:** Add pagination to manage large datasets.
+- **Export Data Feature:** Allow users to export data as CSV/Excel.
+- **User Authentication:** Enable login to save and track favorite origins.
