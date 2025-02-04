@@ -1,0 +1,66 @@
+import { Button } from "@/components/ui/button";
+import { ColumnDef } from "@tanstack/react-table";
+import { ArrowUpDown } from "lucide-react";
+
+export const columns: ColumnDef<any>[] = [
+  {
+    accessorKey: "origin",
+    header: () => <div className="text-center">Origin</div>,
+  },
+  {
+    accessorKey: "fcp",
+    header: "First Contentful Paint (FCP)",
+    cell: ({ row }) => {
+      const { value, histogram } = row.original.fcp;
+      return <div>{value}</div>;
+    },
+  },
+  {
+    accessorKey: "inp",
+    header: "Interaction to Next Paint (INP)",
+    cell: ({ row }) => {
+      const { value, histogram } = row.original.inp;
+      return <div>{value}</div>;
+    },
+  },
+  {
+    accessorKey: "lcp",
+    header: "Largest Contentful Paint (LCP)",
+    cell: ({ row }) => {
+      const { value, histogram } = row.original.lcp;
+      return <div>{value}</div>;
+    },
+  },
+  {
+    accessorKey: "rtt",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Round Trip Time (RTT)
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+  },
+  {
+    accessorKey: "ttfb",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Time to First Byte (TTFB)
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+    cell: ({ row }) => {
+      const { value, histogram } = row.original.ttfb;
+      return <div>{value}</div>;
+    },
+  },
+];
